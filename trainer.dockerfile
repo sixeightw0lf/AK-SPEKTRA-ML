@@ -1,5 +1,5 @@
 # Use an official NVIDIA CUDA runtime as a parent image
-FROM nvidia/cuda:11.0-base
+FROM tensorflow/tensorflow:latest-gpu-jupyter
 
 # Set the working directory to /app
 WORKDIR /app

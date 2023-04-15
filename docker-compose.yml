@@ -4,7 +4,7 @@ services:
   model_trainer:
     build:
       context: .
-      dockerfile: Dockerfile.trainer
+      dockerfile: trainer.dockerfile
     ports:
       - "5000:5000"
     volumes:
@@ -15,14 +15,14 @@ services:
     depends_on:
       - redis
 
-  webui:
-    build:
-      context: .
-      dockerfile: Dockerfile.webui
-    ports:
-      - "3000:3000"
-    depends_on:
-      - model_trainer
+ ## webui:
+ ##   build:
+ ##     context: .
+  ##    dockerfile: Dockerfile.webui
+ ##   ports:
+ ##     - "3000:3000"
+ ##   depends_on:
+ ##     - model_trainer
 
   redis:
     image: "redis:6.2"
