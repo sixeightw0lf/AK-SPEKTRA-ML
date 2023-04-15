@@ -26,13 +26,13 @@ Quickstart Guide
 
 1.  Clone the AK-Trainer repository:
     
-    bashCopy code
+    bash
     
     `git clone https://github.com/yourusername/AK-Trainer.git cd AK-Trainer`
     
 2.  Build and start the Docker containers:
     
-    Copy code
+    
     
     `docker-compose up -d`
     
@@ -44,7 +44,7 @@ Quickstart Guide
     
 4.  To stop and remove the Docker containers, run:
     
-    Copy code
+    
     
     `docker-compose down`
     
