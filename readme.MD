@@ -21,8 +21,8 @@ To get started with AK-Trainer, you need to have the following installed:
 *   Docker: [Download Docker](https://www.docker.com/get-started)
 *   Docker Compose: [Download Docker Compose](https://docs.docker.com/compose/install/)
 
-Getting Started
----------------
+Quickstart Guide
+----------------
 
 1.  Clone the AK-Trainer repository:
     

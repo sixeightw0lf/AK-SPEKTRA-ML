@@ -1,0 +1,5 @@
+datasets
+gitpython
+huggingface-hub
+torch
+transformers
