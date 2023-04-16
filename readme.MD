@@ -118,3 +118,7 @@ Support
 -------
 
 If you encounter any issues or have any questions, please open an issue on the GitHub repository or contact the maintainers.
+
+thanks to these repos for inspiration:
+<a href="https://github.com/tloen/alpaca-lora">alpaca LoRa</a>
+
