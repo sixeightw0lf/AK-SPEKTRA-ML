@@ -14,8 +14,8 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-    depends_on:
-      - redis
+#    depends_on:
+#      - redis
     deploy:
       resources:
         reservations:
@@ -24,8 +24,8 @@ services:
               count: 1
               capabilities: [gpu]
 
-  redis:
-    image: "redis:6.2"
+#  redis:
+#    image: "redis:6.2"
 
 volumes:
   akdata:
