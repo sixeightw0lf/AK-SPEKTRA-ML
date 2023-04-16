@@ -8,6 +8,28 @@ ARKANE INDUSTRIES: OPERATION SPEKTRA
 ARKANE INDUSTRIES: OPERATION SPEKTRA is a powerful, easy-to-setup, and cost-effective machine learning model training platform. It is designed to accelerate and optimize training machine learning models anywhere and for a lot cheaper in parallel. The platform consists of two main components: an ML model trainer and a user-friendly web user interface.
 
 
+ARKANE INDUSTRIES: OPERATION SPEKTRA ROADMAP
+============================================
+
+This is the roadmap for ARKANE INDUSTRIES' ambitious project: OPERATION SPEKTRA. Follow the progress of each task with the provided checkbox emojis.
+
+📋 Roadmap
+----------
+
+*    ✅ TensorFlow training
+*    ✅ Dataset cleaning
+*    🔲 ggml4bit training
+*    🔲 TensorFlow LoRa training
+*    🔲 ggml4bit LoRa training
+*    🔲 ggml 4bit training
+*    🔲 DirectX 12 DirectML Framework
+
+Legend
+------
+
+*   ✅: Completed task
+*   🔲: In-progress or pending task
+
 ARKANE INDUSTRIES: OPERATION SPEKTRA TOOL SUITE POLICY
 =====================================================
 ## Transparency and Open Accessibility
