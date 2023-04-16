@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  kde_desktop:
+    build:
+      context: .
+      dockerfile: Dockerfile_kde
+    image: archlinux_kde_desktop #img name
+
+  docker_server:
+    build:
+      context: .
+      dockerfile: Dockerfile_docker
+    image: archlinux_docker_server #img name
