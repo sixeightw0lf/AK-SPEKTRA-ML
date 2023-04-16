@@ -3,8 +3,8 @@
         "huggingface_access_token" : "",
         "model":"bigscience/bloom-560M",
         "model_tokenizer" : "bigscience/bloom-560M",
-        "data" : "QuickTrain/Alp_vic_unfiltered.json",
-        "eval_data" : "QuickTrain/vic_eval_DAT.json",
+        "data" : "datasets/quicktrain/Alp_vic_unfiltered.json",
+        "eval_data" : "datasets/quicktrain/vic_eval_DAT.json",
         "out_dir" : "ELIAI_MODELS",
 
         "MICRO_BATCH_SIZE" : 0,
