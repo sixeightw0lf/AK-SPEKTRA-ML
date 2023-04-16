@@ -1,0 +1,66 @@
+<div class="markdown prose w-full break-words dark:prose-invert light">
+    <p>To store the initial state of a Docker container and enable easier debugging, you can create a Docker image with
+        the necessary debugging tools and configuration. Here are the steps to follow:</p>
+    <ol>
+        <li>Create a <code>Dockerfile</code>:</li>
+    </ol>
+    <p>Create a new file named <code>Dockerfile</code> in your project directory.</p>
+    <ol start="2">
+        <li>Define the base image:</li>
+    </ol>
+    <p>Choose an appropriate base image for your application. For example, if your application is built with Python, you
+        can use the official Python image:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>css</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-css"><span class="hljs-selector-tag">FROM</span> python:<span class="hljs-number">3.8</span>
+</code></div></div></pre>
+    <ol start="3">
+        <li>Install debugging tools:</li>
+    </ol>
+    <p>Install any necessary debugging tools, like gdb, strace, or any language-specific debuggers. For example, if you
+        need to debug a Python application, you can install pdb, pdb++, or ipdb:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs">RUN pip install ipdb
+</code></div></div></pre>
+    <ol start="4">
+        <li>Copy your source code:</li>
+    </ol>
+    <p>Copy your application source code to the Docker container:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>bash</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-bash">COPY . /app
+WORKDIR /app
+</code></div></div></pre>
+    <ol start="5">
+        <li>Install dependencies:</li>
+    </ol>
+    <p>Install any dependencies needed for your application. For a Python application, you can use the following command
+        if you have a <code>requirements.txt</code> file:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs">RUN pip install -r requirements.txt
+</code></div></div></pre>
+    <ol start="6">
+        <li>Expose necessary ports:</li>
+    </ol>
+    <p>If your application requires specific ports, expose them using the <code>EXPOSE</code> directive:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>yaml</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-yaml"><span class="hljs-string">EXPOSE</span> <span class="hljs-number">8080</span>
+</code></div></div></pre>
+    <ol start="7">
+        <li>Set the entrypoint:</li>
+    </ol>
+    <p>Instead of setting the <code>CMD</code> directive, use the <code>ENTRYPOINT</code> directive to specify the
+        command to run when the container starts. This will allow you to pass additional arguments when starting the
+        container, which can be helpful for debugging:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>css</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-css">ENTRYPOINT <span class="hljs-selector-attr">[<span class="hljs-string">"python"</span>, <span class="hljs-string">"your_app.py"</span>]</span>
+</code></div></div></pre>
+    <ol start="8">
+        <li>Build the Docker image:</li>
+    </ol>
+    <p>Now build the Docker image with your custom configuration:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs">docker build -t your_image_name .
+</code></div></div></pre>
+    <ol start="9">
+        <li>Run and debug the container:</li>
+    </ol>
+    <p>Run the container with any necessary arguments for debugging:</p>
+    <pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>css</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-css">docker run -it <span class="hljs-attr">--rm</span> -<span class="hljs-selector-tag">p</span> <span class="hljs-number">8080</span>:<span class="hljs-number">8080</span> your_image_name --debug
+</code></div></div></pre>
+    <p>This will start the container with your application and debugging tools. You can now attach your debugger to the
+        container and start debugging.</p>
+    <p>By following these steps, you'll have a Docker image with the initial state of your container that includes
+        debugging tools, making it easier for you to debug your code.</p>
+</div>

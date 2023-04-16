@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  tuner:
+    build: .
+    volumes:
+      - .:/app
+      - data-volume:/app/scripts/AK_SKUNKWORKS_LoRa/output
+    ports:
+      - "80:80"
+
+volumes:
+  data-volume:

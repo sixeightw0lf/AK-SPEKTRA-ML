@@ -1,0 +1,136 @@
+{
+    "gptbrushes.brushes": [
+
+        {
+            "name": "Add Comments",
+            "icon": "💬",
+            "prompt": "Please add code comments to the code."
+          },
+          {
+            "name": "Fix Bugs",
+            "icon": "🐞",
+            "prompt": "Identify and fix bugs in the code provided by the user. Answer directly with the fixed code. Do not use a markdown code block. You can add a code comment to explain the fix."
+          },
+          {
+            "name": "Add Types",
+            "icon": "🔠",
+            "prompt": "Please add type annotations to the code provided by the user."
+          },
+          {
+            "name": "Translate to German",
+            "icon": "🇩🇪",
+            "prompt": "Translate the user text to German."
+          },
+          {
+            "name": "Translate to English",
+            "icon": "🇬🇧",
+            "prompt": "Translate the user text to English."
+          },
+          {
+            "name": "Refactor Code",
+            "icon": "♻️",
+            "prompt": "Improve the user code by refactoring it."
+          },
+          {
+            "name": "Generate Code",
+            "icon": "💻",
+            "prompt": "Based on the user's description, generate code in the specified programming language."
+            },
+            {
+            "name": "Debug Code",
+            "icon": "🔍",
+            "prompt": "Help the user identify and fix issues in their code by providing suggestions or code snippets."
+            },
+            {
+            "name": "Run Docker",
+            "icon": "🐳",
+            "prompt": "Provide instructions on how to create and run a Docker container for the user's project."
+            },
+            {
+            "name": "Deploy to Service",
+            "icon": "🚀",
+            "prompt": "Guide the user through deploying their application to a cloud service provider, such as AWS, GCP, or Azure."
+            },
+            {
+            "name": "Optimize Performance",
+            "icon": "⚡",
+            "prompt": "Suggest ways to optimize and improve the performance of the user's code or application."
+            },
+            {
+            "name": "Write Tests",
+            "icon": "✅",
+            "prompt": "Help the user create test cases for their code to ensure it functions correctly."
+            },
+            {
+            "name": "Setup Continuous Integration",
+            "icon": "🔄",
+            "prompt": "Assist the user in setting up a continuous integration pipeline for their project using services like GitHub Actions, GitLab CI/CD, or Jenkins."
+            },
+            {
+            "name": "Refactor Code",
+            "icon": "♻️",
+            "prompt": "Review the user's code and provide suggestions for refactoring to improve code quality, maintainability, or readability."
+            },
+            {
+            "name": "Document Code",
+            "icon": "📝",
+            "prompt": "Help the user create clear and concise documentation for their code, including comments, README files, and API documentation."
+            },
+            {
+            "name": "Code Review",
+            "icon": "🔎",
+            "prompt": "Perform a code review for the user's code and provide feedback on best practices, potential issues, and areas for improvement."
+            },
+            {
+"name": "Create APIs",
+"icon": "🌐",
+"prompt": "Help the user design and implement RESTful or GraphQL APIs for their application."
+},
+{
+"name": "Configure Database",
+"icon": "💾",
+"prompt": "Assist the user in selecting, setting up, and configuring a database for their application."
+},
+{
+"name": "Architect Scalable Solutions",
+"icon": "📈",
+"prompt": "Guide the user in designing and implementing scalable solutions for their application, considering factors like load balancing, caching, and microservices."
+},
+{
+"name": "Implement Security Best Practices",
+"icon": "🔒",
+"prompt": "Help the user identify potential security vulnerabilities and suggest security best practices to incorporate in their application."
+},
+{
+"name": "Add Authentication",
+"icon": "🔑",
+"prompt": "Guide the user through adding authentication and authorization mechanisms to their application, such as OAuth or JWT."
+},
+{
+"name": "Frontend Frameworks",
+"icon": "🖥️",
+"prompt": "Assist the user in selecting and using popular frontend frameworks such as React, Angular, or Vue for their application."
+},
+{
+"name": "Backend Frameworks",
+"icon": "🖇️",
+"prompt": "Help the user choose and work with backend frameworks like Django, Express, or Ruby on Rails for their application."
+},
+{
+"name": "Automate Deployment",
+"icon": "🤖",
+"prompt": "Assist the user in setting up automated deployment processes using tools like Terraform, Ansible, or Kubernetes."
+},
+{
+"name": "Monitor and Log",
+"icon": "📊",
+"prompt": "Guide the user in setting up monitoring and logging solutions for their application, such as using ELK Stack, Prometheus, or Grafana."
+},
+{
+"name": "Implement CI/CD Best Practices",
+"icon": "🌟",
+"prompt": "Help the user implement continuous integration and continuous deployment best practices, such as branching strategies, version control, and release management."
+}
+    ]
+}
+
