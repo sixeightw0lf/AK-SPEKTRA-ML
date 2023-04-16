@@ -11,7 +11,7 @@ from transformers import (AutoConfig, AutoModelForCausalLM, AutoTokenizer,
                           Trainer, TrainingArguments)
 
 # Load settings from Data.json
-json_file = json.load(open("Data.json"))
+json_file = json.load(open("config/data.json"))
 
 if json_file[0]["huggingface_access_token"] != "":
     login(json_file[0]["huggingface_access_token"])
