@@ -1,4 +1,4 @@
-version: "3.8"
+version: "2.4"
 
 services:
   model_trainer:
@@ -8,24 +8,24 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - model_data:/app/data
+      - akdata:/app/akdata
+    env_file:
+      - .env
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     depends_on:
       - redis
-
- ## webui:
- ##   build:
- ##     context: .
-  ##    dockerfile: Dockerfile.webui
- ##   ports:
- ##     - "3000:3000"
- ##   depends_on:
- ##     - model_trainer
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
   redis:
     image: "redis:6.2"
 
 volumes:
-  model_data:
+  akdata:

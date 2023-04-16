@@ -3,3 +3,4 @@ gitpython
 huggingface-hub
 torch
 transformers
+tensorflow

@@ -1,19 +1,18 @@
 import json
 import os
-import torch
-import transformers
-from datasets import load_dataset
-from git import Repo
-from huggingface_hub import login, logout
-from pathlib import Path
-from transformers import (AutoConfig, AutoModelForCausalLM, AutoTokenizer,DataCollatorForLanguageModeling, TextDataset,Trainer, TrainingArguments)
+import re
 import tensorflow as tf
-
-# Check if GPU is available
-if not tf.config.list_physical_devices('GPU'):
-    print("No GPU found. Please ensure you have installed TensorFlow correctly.")
-else:
-    print("GPU found.")
+from datasets import load_dataset
+from huggingface_hub import login, logout
+from transformers import (
+    AutoConfig,
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    DataCollatorForLanguageModeling,
+    TextDataset,
+    Trainer,
+    TrainingArguments,
+)
 
 
 # Load settings from Data.json
@@ -43,6 +42,105 @@ EPOCHS = json_file[0]["EPOCHS"]
 LEARNING_RATE = json_file[0]["LEARNING_RATE"]
 CUTOFF_LEN = json_file[0]["CUTOFF_LEN"]
 MAX_STEP = json_file[0]["MAX_STEP"]
+
+# Preprocessing function to clean and fix the dataset
+def preprocess_dataset(dataset):
+    fixed_dataset = []
+
+    for row in dataset:
+        instruction = row["instruction"]
+        input_text = row["input"]
+        output = row["output"]
+
+        # Check if any of the refusal terms are in the output
+        refusal_terms = ["OpenAI", "As an AI language model", "I cannot do that"]
+        if any(term.lower() in output.lower() for term in refusal_terms):
+            continue
+
+        # Remove special characters
+        instruction = re.sub(r'[^\w\s]', '', instruction)
+        input_text = re.sub(r'[^\w\s]', '', input_text)
+        output = re.sub(r'[^\w\s]', '', output)
+
+        fixed_dataset.append({"instruction": instruction, "input": input_text, "output": output})
+
+    return fixed_dataset
+
+
+# Check the dataset and display a message for the user
+def check_dataset(dataset):
+    errors = []
+
+    for idx, row in enumerate(dataset):
+        if "instruction" not in row or "input" not in row or "output" not in row:
+            errors.append(idx)
+
+    return errors
+
+
+# Save the fixed dataset to a JSON file
+def save_dataset_to_file(dataset, filename):
+    with open(filename, "w") as f:
+        json.dump(dataset, f, indent=2)
+
+
+# Display a sample of the dataset
+def display_dataset_sample(dataset, n=2):
+    print("Dataset sample:")
+    for i in range(n):
+        print(f"Item {i + 1}:")
+        print(f"Instruction: {dataset[i]['instruction']}")
+        print(f"Input: {dataset[i]['input']}")
+        print(f"Output: {dataset[i]['output']}")
+        print()
+
+
+# Load the dataset and check it
+data = load_dataset("json", data_files=json_file[0]["data"])
+valid_data = load_dataset("json", data_files=json_file[0]["eval_data"])
+
+dataset_errors = check_dataset(data)
+
+if dataset_errors:
+    print(f"Warning: There are {len(dataset_errors)} errors in the dataset.")
+    print("Options:")
+    print("1. Continue anyway.")
+    print("2. Auto fix the dataset.")
+    print("3. Stop the script.")
+    user_choice = int(input("Enter your choice (1, 2, or 3): "))
+
+    if user_choice == 1:
+        print("Continuing with the current dataset...")
+    elif user_choice == 2:
+        print("Auto fixing the dataset...")
+        fixed_data = preprocess_dataset(data)
+        fixed_valid_data = preprocess_dataset(valid_data)
+
+        save_dataset_to_file(fixed_data, "training/AK-CLEANROOM_py.json")
+        print("Fixed dataset saved to 'training/AK-CLEANROOM_py.json'.")
+
+        display_dataset_sample(fixed_data)
+
+        user_confirmation = input("Does the fixed dataset look ok? (yes/no): ")
+        if user_confirmation.lower() == "yes":
+            data = fixed_data
+            valid_data = fixed_valid_data
+            print("Proceeding with the training using the fixed dataset.")
+        else:
+            print("Not using the fixed dataset. Stopping the script.")
+            exit()
+    elif user_choice == 3:
+        print("Stopping the script.")
+        exit()
+else:
+        print("Dataset is in good shape. Proceeding with the training.")
+
+# Check if GPU is available
+if not tf.config.list_physical_devices('GPU'):
+    print("No GPU found. Please ensure you have installed TensorFlow correctly.")
+else:
+    print("GPU found.")
+
 
 # Prepare data if not preprocessed
 if not json_file[0]['PreProcessedData?']:
@@ -78,7 +176,7 @@ if not json_file[0]['PreProcessedData?']:
         )
     )
 
-    valid_data = valid_data.shuffle().map(
+valid_data = valid_data.shuffle().map(
         lambda data_point: tokenizer(
             generate_prompt(data_point),
             truncation=True,

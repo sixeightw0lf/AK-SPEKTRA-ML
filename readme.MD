@@ -3,6 +3,22 @@ AK-Trainer
 
 AK-Trainer is a powerful, easy-to-setup, and cost-effective machine learning model training platform. It is designed to accelerate and optimize training machine learning models anywhere and for a lot cheaper in parallel. The platform consists of two main components: an ML model trainer and a user-friendly web user interface.
 
+
+ARKANE INDUSTRIES: OPERATION SPEKTRA TOOL SUITE POLICY
+=====================================================
+## Transparency and Open Accessibility
+
+All datasets, models, LoRas, and other ML applications using ARKANE INDUSTRIES: OPERATION SPEKTRA must collaborate and contribute to the collective knowledge base. This fosters a spirit of open accessibility and ensures the continuous improvement of AI models and applications. Users are encouraged to:
+
+*   Share their research findings, methodologies, and best practices with the community.
+*   Contribute improvements and innovations to ARKANE INDUSTRIES: OPERATION SPEKTRA, enabling other users to benefit from advancements.
+*   Engage in open discussions and knowledge exchange to promote transparency and collaboration in AI development.
+
+This approach not only benefits individual users but also enriches the entire ecosystem, driving progress and innovation in AI technologies......
+
+# Please read the POLICY file for the full policy.
+<a href="./POLICY.MD">READ ME FIRST</a>
+
 Features
 --------
 
@@ -25,29 +41,29 @@ Quickstart Guide
 ----------------
 
 1.  Clone the AK-Trainer repository:
-    
+
     bash
-    
+
     `git clone https://github.com/yourusername/AK-Trainer.git cd AK-Trainer`
-    
+
 2.  Build and start the Docker containers:
-    
-    
-    
+
+
+
     `docker-compose up -d`
-    
+
     This command will build and start the ML model trainer, web user interface, and Redis services.
-    
+
 3.  Access the web user interface:
-    
+
     Open your browser and navigate to [http://localhost:3000](http://localhost:3000). You should see the AK-Trainer web user interface, where you can manage and monitor your training tasks.
-    
+
 4.  To stop and remove the Docker containers, run:
-    
-    
-    
+
+
+
     `docker-compose down`
-    
+
 
 Usage
 -----
