@@ -1,7 +1,8 @@
-AK-Trainer
+<img src="./operation-spectra.png"/>
+ARKANE INDUSTRIES: OPERATION SPEKTRA
 ==========
 
-AK-Trainer is a powerful, easy-to-setup, and cost-effective machine learning model training platform. It is designed to accelerate and optimize training machine learning models anywhere and for a lot cheaper in parallel. The platform consists of two main components: an ML model trainer and a user-friendly web user interface.
+ARKANE INDUSTRIES: OPERATION SPEKTRA is a powerful, easy-to-setup, and cost-effective machine learning model training platform. It is designed to accelerate and optimize training machine learning models anywhere and for a lot cheaper in parallel. The platform consists of two main components: an ML model trainer and a user-friendly web user interface.
 
 
 ARKANE INDUSTRIES: OPERATION SPEKTRA TOOL SUITE POLICY
@@ -32,7 +33,7 @@ Features
 Prerequisites
 -------------
 
-To get started with AK-Trainer, you need to have the following installed:
+To get started with ARKANE INDUSTRIES: OPERATION SPEKTRA, you need to have the following installed:
 
 *   Docker: [Download Docker](https://www.docker.com/get-started)
 *   Docker Compose: [Download Docker Compose](https://docs.docker.com/compose/install/)
@@ -40,11 +41,11 @@ To get started with AK-Trainer, you need to have the following installed:
 Quickstart Guide
 ----------------
 
-1.  Clone the AK-Trainer repository:
+1.  Clone the ARKANE INDUSTRIES: OPERATION SPEKTRA repository:
 
     bash
 
-    `git clone https://github.com/yourusername/AK-Trainer.git cd AK-Trainer`
+    `git clone https://github.com/yourusername/repo.git && cd repo`
 
 2.  Build and start the Docker containers:
 
@@ -56,7 +57,7 @@ Quickstart Guide
 
 3.  Access the web user interface:
 
-    Open your browser and navigate to [http://localhost:3000](http://localhost:3000). You should see the AK-Trainer web user interface, where you can manage and monitor your training tasks.
+    Open your browser and navigate to [http://localhost:3000](http://localhost:3000). You should see the ARKANE INDUSTRIES: OPERATION SPEKTRA web user interface, where you can manage and monitor your training tasks.
 
 4.  To stop and remove the Docker containers, run:
 
@@ -75,7 +76,7 @@ Usage
 Contributing
 ------------
 
-We welcome contributions to AK-Trainer! If you'd like to contribute, please follow these steps:
+We welcome contributions to ARKANE INDUSTRIES: OPERATION SPEKTRA! If you'd like to contribute, please follow these steps:
 
 1.  Fork the repository
 2.  Create a new branch (`git checkout -b your-feature-branch`)
@@ -86,7 +87,7 @@ We welcome contributions to AK-Trainer! If you'd like to contribute, please foll
 License
 -------
 
-AK-Trainer is released under the [MIT License](LICENSE).
+ARKANE INDUSTRIES: OPERATION SPEKTRA is released under the [MIT License](LICENSE).
 
 Support
 -------

@@ -4,3 +4,7 @@ huggingface-hub
 torch
 transformers
 tensorflow
+transformers
+torch
+accelerate
+# add any other dependencies you need here
