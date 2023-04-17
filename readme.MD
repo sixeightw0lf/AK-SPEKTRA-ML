@@ -167,6 +167,7 @@ Support
 
 If you encounter any issues or have any questions, please open an issue on the GitHub repository or contact the maintainers.
 
-thanks to these repos for inspiration:
+thanks to these repos for inspiration and code patterns:
 <a href="https://github.com/tloen/alpaca-lora">alpaca LoRa</a>
+<a href="https://github.com/oobabooga/text-generation-webui">oobabooga's text-generation-webui</a>
 
