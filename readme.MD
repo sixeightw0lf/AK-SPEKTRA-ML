@@ -97,6 +97,54 @@ Usage
 *   Upload your dataset and configure your model training settings using the web user interface.
 *   Monitor the progress of your training tasks in real-time.
 *   Download your trained models and apply them to your machine learning projects.
+*
+Training Parameters
+===============================
+
+found in:
+* `./config/config.json`
+Below is an explanation of each parameter in the given JSON configuration:
+
+*   `huggingface_access_token`: The access token for authentication with Hugging Face's services (e.g., Hugging Face Hub, Model Hub, etc.).
+
+*   `model`: The identifier of the pre-trained model to be used for fine-tuning, in this case, it is "bigscience/bloom-560M".
+
+*   `model_tokenizer`: The identifier of the tokenizer to be used with the model, in this case, it is the same as the model: "bigscience/bloom-560M".
+
+*   `data`: The path to the training dataset file in JSON format, here "datasets/quicktrain/Alp\_vic\_unfiltered.json".
+
+*   `eval_data`: The path to the evaluation dataset file in JSON format, here "datasets/quicktrain/vic\_eval\_DAT.json".
+
+*   `out_dir`: The output directory where the trained model and associated files will be saved, in this case, "ELIAI\_MODELS".
+
+*   `MICRO_BATCH_SIZE`: The number of examples in a micro-batch, used for model training. A value of 0 means the batch size will be automatically determined.
+
+*   `GRADIENT_ACCUMULATION_STEPS`: The number of gradient accumulation steps, used to aggregate gradients from multiple micro-batches before performing a weight update.
+
+*   `EPOCHS`: The number of epochs (complete passes through the dataset) to train the model.
+
+*   `LEARNING_RATE`: The learning rate to be used for model training, here 3e-5.
+
+*   `CUTOFF_LEN`: The maximum sequence length for input examples, in this case, 400 tokens.
+
+*   `MAX_STEP`: The maximum number of training steps to be performed. A value of 0 means the number of steps will be determined by the number of epochs.
+
+*   `CPU_MODE`: A boolean flag to indicate whether to train the model using only CPU resources (true) or using GPU resources if available (false).
+
+*   `PreProcessedData?`: A boolean flag to indicate whether the input data is pre-processed (true) or not (false).
+
+*   `Load_Checkpoint`: A boolean flag to indicate whether to load a previously saved checkpoint for model training (true) or to start training from the pre-trained model (false).
+
+
+Extra parameters
+----------------
+
+*   `eval_steps`: The number of training steps between evaluation runs.
+
+*   `load_best_model_at_end`: A boolean flag to indicate whether to load the best model at the end of training (true) or not (false).
+
+*   `save_steps`: The number of training steps between saving checkpoints.
+
 
 Contributing
 ------------

@@ -87,11 +87,11 @@ if not json_file[0]['PreProcessedData?']:
         )
     )
 
-print("Data conversion step 2 done")
+print("Data conversion step 2 done, new train config:::")
 
 # Training arguments
 training_args = TrainingArguments(
-    per_device_train_batch_size=MICRO_BATCH_SIZE,
+
     gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
     warmup_steps=5,
     num_train_epochs=EPOCHS,
@@ -102,6 +102,7 @@ training_args = TrainingArguments(
     save_total_limit=10,
     max_steps=MAX_STEP,
     auto_find_batch_size=True if json_file[0]["MICRO_BATCH_SIZE"] == 0 else False,
+    per_device_train_batch_size=MICRO_BATCH_SIZE,
     per_device_eval_batch_size=1,
     eval_accumulation_steps=1,
     evaluation_strategy="steps",

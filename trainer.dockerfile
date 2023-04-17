@@ -1,5 +1,5 @@
 # Use an official NVIDIA CUDA runtime as a parent image
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+FROM huggingface/transformers-pytorch-deepspeed-latest-gpu
 
 # Set the working directory to /app
 WORKDIR /app
