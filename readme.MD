@@ -102,8 +102,10 @@ Training Parameters
 ===============================
 
 found in:
-* `./config/config.json`
-Below is an explanation of each parameter in the given JSON configuration:
+ `./config/config.json`
+ 
+#### Below is an explanation of each parameter in the given JSON configuration:
+
 
 *   `huggingface_access_token`: The access token for authentication with Hugging Face's services (e.g., Hugging Face Hub, Model Hub, etc.).
 
